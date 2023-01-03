@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load dir_tags %}
+{% block header%}
+<div>サイトマップ</div> 
+{% endblock header%}
+
+
+{% block content%}  
+
+
+<table>
+    <th class="heading tag">第1フォルダ</th>
+    <th class="heading tag 2">第2フォルダ</th>
+    <th class="heading tag 3">第3フォルダ</th>
+    <th class="heading tag 4">第4フォルダ</th>
+    <th class="heading tag 5">第5フォルダ</th>
+    {% for dir in object_list%}
+
+    <tr>
+        <form action = {% url 'dirdetail' dir.dirpath %}>
+            {% if dir.dirphase == 1%}
+                <td class="dir_exsists"><i class="bi bi-folder"></i><input type="submit" class="btn btn-link" value={% dir_eliminate_path dir.dirpath dir.dirphase %}></td>
+            {% endif %}
+            {% if dir.dirphase == 2%}
+                <td>　　|_________________</td><td class="dir_exsists"><i class="bi bi-folder"></i><input type="submit" class="btn btn-link" value={% dir_eliminate_path dir.dirpath dir.dirphase %}></td>
+            {% endif %}
+            {% if dir.dirphase == 3%}
+                <td>　　|</td><td>　　|_________________</td><td class="dir_exsists"><i class="bi bi-folder"></i><input type="submit" class="btn btn-link" value={% dir_eliminate_path dir.dirpath dir.dirphase %}></td>
+            {% endif %}
+            {% if dir.dirphase == 4%}
+                <td>　　|</td><td>　　|</td><td>　　|_________________</td><td class="dir_exsists"><i class="bi bi-folder"></i><input type="submit" class="btn btn-link" value={% dir_eliminate_path dir.dirpath dir.dirphase %}></td>
+            {% endif %}
+            {% if dir.dirphase == 5%}
+                <td>　　|</td><td>　　|</td><td>　　|</td><td>　　|_________________</td><td class="dir_exsists"><i class="bi bi-folder"></i><input type="submit" class="btn btn-link" value={% dir_eliminate_path dir.dirpath dir.dirphase %}></td>
+            {% endif %}
+        </form>
+    </tr>
+    {% endfor %}
+</table>
+
+<style>
+
+    i.bi.bi-folder::before {
+        background: #dbdb4b;
+    }
+
+    .heading.tag {
+        text-decoration: none;
+        padding: 0.5rem;
+        background: #f7f7f7;
+        border-left: solid 6px #0f3cd5;
+        color: #5bb1fc;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.22);
+    }
+    .heading.dir_exsists.1{
+        box-shadow: 5px 5px 5px rgb(0 0 0 / 18%);
+        border-radius: 8px;
+        background: blanchedalmond;
+    }
+    
+    td.dir_exsists {
+        box-shadow: 5px 5px 5px rgb(0 0 0 / 18%);
+        border-radius: 8px;
+        background: blanchedalmond;
+    }
+
+</style>
+
+{% endblock content%}

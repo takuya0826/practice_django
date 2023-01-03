@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block header%}
+<div>サイトマップ</div>
+{% endblock header%}
+
+
+{% block content%}  
+<table>
+    <tr>
+        <th>対象フォルダ</th>
+        <td>{{dir_mst.dirpath}}</td>
+    </tr>
+    <tr>
+        <th>容量制限</th>
+        <td>{{dir_mst.dirvolume}} GB</td>
+    </tr>
+    <tr>
+        <th>フォルダ管理者</th>
+        <td>{{dir_mst.dirmanager}}</td>
+    </tr>
+</table>
+
+<table>
+    <th>検索権</th>
+    <th>更新権</th>
+</table>
+
+{% endblock content%}
