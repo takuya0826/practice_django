@@ -10,15 +10,13 @@ class user_mst(models.Model):
     user_name = models.CharField(max_length=100,null=True)
 
 class group_organaization(models.Model):
-    group_id= models.ForeignKey(group_mst,on_delete=models.CASCADE)
-    group_name = models.CharField(max_length=100,null=True)
-    user_id= models.ForeignKey(user_mst,on_delete=models.CASCADE)
-    user_name = models.CharField(max_length=100)
+    group_mst= models.ForeignKey(group_mst,to_field='group_id',on_delete=models.CASCADE)
+    user_mst= models.ForeignKey(user_mst,to_field='user_id',on_delete=models.CASCADE)
 
 class dir_mst(models.Model):
     dirpath = models.CharField(primary_key=True,max_length=1000)
     dirvolume = models.IntegerField()
-    dirmanager = models.ForeignKey(user_mst,on_delete=models.CASCADE)
+    dirmanager = models.ForeignKey(user_mst,on_delete=models.PROTECT)
     dirphase = models.IntegerField()
     class Meta:
         ordering = ['dirpath']

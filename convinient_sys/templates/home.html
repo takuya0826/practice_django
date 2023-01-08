@@ -10,10 +10,10 @@
 
 <table>
     <th class="heading tag">第1フォルダ</th>
-    <th class="heading tag 2">第2フォルダ</th>
-    <th class="heading tag 3">第3フォルダ</th>
-    <th class="heading tag 4">第4フォルダ</th>
-    <th class="heading tag 5">第5フォルダ</th>
+    <th class="heading tag">第2フォルダ</th>
+    <th class="heading tag">第3フォルダ</th>
+    <th class="heading tag">第4フォルダ</th>
+    <th class="heading tag">第5フォルダ</th>
     {% for dir in object_list%}
 
     <tr>
@@ -38,6 +38,26 @@
     {% endfor %}
 </table>
 
+{% comment %} ウィジェット {% endcomment %}
+<div class="detail_widget">
+
+    <table>
+        <tr>
+            <th class="footer tag">フォルダ管理者</th>
+            <td></td>
+            <th class="footer tag">容量</th>
+            <td></td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <th class="footer tag">読取権限</th>
+            <th class="footer tag">更新権限</th>
+        </tr>
+    </table>
+</div>
+
 <style>
 
     i.bi.bi-folder::before {
@@ -52,6 +72,16 @@
         color: #5bb1fc;
         box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.22);
     }
+
+    .footer.tag {
+        text-decoration: none;
+        padding: 0.5rem;
+        background: #f7f7f7;
+        border-left: solid 6px #66d50f;
+        color: green;
+        box-shadow: 5px 5px 5px rgb(0 0 0 / 22%);
+    }
+
     .heading.dir_exsists.1{
         box-shadow: 5px 5px 5px rgb(0 0 0 / 18%);
         border-radius: 8px;
@@ -62,6 +92,16 @@
         box-shadow: 5px 5px 5px rgb(0 0 0 / 18%);
         border-radius: 8px;
         background: blanchedalmond;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .detail_widget {
+        position: fixed;
+        top: 700px;
     }
 
 </style>
