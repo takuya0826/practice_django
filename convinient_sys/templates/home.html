@@ -39,25 +39,27 @@
 </table>
 
 {% comment %} ウィジェット {% endcomment %}
+
+
 <div class="detail_widget">
+<table>
+    <tr>
+        <th class="footer tag">読取権限</th>
+        <th class="footer tag">更新権限</th>
+    </tr>
+    {% for r_us in ACS_R_US %}
+    <tr>
+        <td>{{r_us.user_mst_id__user_name}}</td>
+    </tr>
+    {% endfor %}
+    {% for r_us in ACS_W_US %}
+    <tr>
+        <td>{{r_us.user_mst_id__user_name}}</td>
+    </tr>
+    {% endfor %}
 
-    <table>
-        <tr>
-            <th class="footer tag">フォルダ管理者</th>
-            <td></td>
-            <th class="footer tag">容量</th>
-            <td></td>
-        </tr>
-    </table>
-
-    <table>
-        <tr>
-            <th class="footer tag">読取権限</th>
-            <th class="footer tag">更新権限</th>
-        </tr>
-    </table>
+</table>
 </div>
-
 <style>
 
     i.bi.bi-folder::before {

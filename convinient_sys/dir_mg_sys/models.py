@@ -23,10 +23,10 @@ class dir_mst(models.Model):
 
 class access_mst_user(models.Model):
     dirpath = models.ForeignKey(dir_mst,models.PROTECT)
-    user_name = models.CharField(max_length=100)
+    user_mst = models.ForeignKey(user_mst,models.PROTECT)
     authority = models.CharField(choices=(('F','フルコントロール'),('W', '更新権'),('R', '検索権')),max_length=50)
 
 class access_mst_group(models.Model):
     dirpath = models.ForeignKey(dir_mst,models.PROTECT)
-    user_name = models.CharField(max_length=100)
+    group_mst = models.ForeignKey(group_mst,models.PROTECT)
     authority = models.CharField(choices=(('F','フルコントロール'),('W', '更新権'),('R', '検索権')),max_length=50)
